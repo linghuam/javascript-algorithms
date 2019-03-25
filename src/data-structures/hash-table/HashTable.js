@@ -59,7 +59,7 @@ export default class HashTable {
       bucketLinkedList.append({ key, value });
     } else {
       // Update value of existing node.
-      node.value.value = value;
+      node.value = value;
     }
   }
 
@@ -88,7 +88,7 @@ export default class HashTable {
     const bucketLinkedList = this.buckets[this.hash(key)];
     const node = bucketLinkedList.find({ callback: nodeValue => nodeValue.key === key });
 
-    return node ? node.value.value : undefined;
+    return node ? node.value : undefined;
   }
 
   /**
